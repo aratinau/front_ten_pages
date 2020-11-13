@@ -1,0 +1,17 @@
+.page4 {
+    .column {
+        float: left;
+        width: 50%;
+        // padding: 10px;
+        position: relative;
+        .box--description {
+            position: sticky;
+            width: 50%;
+            // bottom: 5rem;
+            // left: -5rem;
+            background: $color-plum-light;
+            z-index: 1;
+        }
+    }
+    
+}

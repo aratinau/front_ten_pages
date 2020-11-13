@@ -1,0 +1,527 @@
+@import "abstracts/variables";
+
+@import "base/base";
+@import "base/typography";
+@import "base/navigation";
+
+@import "pages/pages4";
+
+/////////////////////////////////
+/////////// TODO delete
+/////////////////////////////////
+
+img {
+    
+    // width: 100%;
+    // position: fixed;
+    right: 0;
+    &.effect--one {
+        height: 50vh;
+    }
+    &.effect--two {
+        width: 100%;
+    }
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 100;
+    transition: all 0.1s linear;
+    &:hover {
+        font-weight: 700;
+        letter-spacing: -15px;
+    }
+    font-size: 10vw;
+    width: 20%;
+    border-bottom: 1px solid red;
+    border-image: linear-gradient(to right, black, white) 1 100%;
+    border-image-slice: 1; // don't know what is it
+}
+/////////////////////////////////
+// COLUMN
+/////////////////////////////////
+/* Create two equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 50%;
+    // padding: 10px;
+    position: relative;
+    img:hover + .box--description {
+        opacity: 0;
+        visibility: hidden;
+        transition: all .3s;
+    }
+    .box--description {
+        position: absolute;
+        width: 50%;
+        bottom: 6rem;
+        left: -5rem;
+        background: $color-plum-light;
+        z-index: 1;
+        font-size: $default-font-size;
+        font-size: $small-font-size;
+        padding: 2rem;
+        box-shadow: 2px 2px 0px 0px $color-plum-dark;
+        p {
+            font-size: 1.3rem;
+            line-height: 1.3rem;
+            text-align: justify;
+            
+        }
+    }
+
+    .big-world {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 25rem;
+        font-weight: bold;
+    }
+
+    p {
+        font-size: $default-font-size;
+    }
+}
+
+.row {
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+.one, .two, .three {
+    display: none;
+}
+.toggle--radio__one:checked {
+    ~ .one {
+        display: inline-block;
+    }
+}
+
+.toggle--radio__two:checked {
+    ~ .two {
+        display: inline-block;
+    }
+}
+
+.toggle--radio__three:checked {
+    ~ .three {
+        display: inline-block;
+    }
+}
+
+.page2 {
+    // max-width: 116rem;
+    // margin: 0 auto;
+    &__menu {
+        width: 50%;
+        font-size: 10rem;
+        position: fixed;
+        // transform: translateX(-25rem);
+        bottom: -12rem;
+        transition: .1s ease-in-out;
+        background: $color-blue-light;
+        padding-right: 10rem;
+        z-index: 1000;
+        li {
+            display: inline;
+        }
+        li a {
+            text-decoration: none;
+            color: $color-slate-dark;
+            &:hover {
+                background: $color-blue-light;
+            }
+        }
+        &:hover {
+            background: none;
+            transform: translateX(0);
+            bottom: 0;
+        }
+        // le burger menu commence ici
+        &--icon {
+            position: relative;
+            &,
+            &::before,
+            &::after {
+                width: 3rem;
+                height: 2px;
+                background-color: $color-slate-dark;
+                display: inline-block;
+            }
+
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                transition: all 2.2s;
+            }
+
+            &::before {
+                top : -.8rem;
+            }
+            &::after {
+                top: .8rem;
+            }
+        } // et s'arrete ici
+    }
+}
+
+
+#photo-one:target,
+#photo-two:target,
+#photo-three:target {
+    .big-world {
+        font-weight: lighter;
+        // DONT KNOW WHAT TO DO WITH 
+    }
+}
+
+.page5 {
+    .content {
+        position: relative;
+        .big-word {
+            // font-size: 50vh;
+            font-family: 'Montserrat', sans-serif;
+            z-index: 100;
+            position: fixed;
+            top: 0;
+            font-size: 45rem;
+            font-weight: bold;
+            // text-shadow: -1px 0 orange, 0 1px orange, 1px 0 orange, 0 -1px orange;
+            text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+            // color: transparent;
+            mix-blend-mode: screen;
+            &:hover {
+                color: red;
+            }
+        }
+        .image-background {
+            z-index: 10;
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            left: 0;
+            background-image: linear-gradient(to right bottom, green, red),
+            url(../img/jelena-koncar-1067770-unsplash.jpg);
+            background-blend-mode: exclusion;
+            background-size: cover;
+            // TODO : animation du background
+        }
+    }
+}
+
+
+@keyframes pq-noise-2 {
+    0% {
+     clip:rect(224px, 9999px, 352px, 0)
+    }
+    5% {
+     clip:rect(331px, 9999px, 409px, 0)
+    }
+    10% {
+     clip:rect(6px, 9999px, 235px, 0)
+    }
+    15% {
+     clip:rect(170px, 9999px, 277px, 0)
+    }
+    20% {
+     clip:rect(393px, 9999px, 50px, 0)
+    }
+    25% {
+     clip:rect(142px, 9999px, 401px, 0)
+    }
+    30% {
+     clip:rect(411px, 9999px, 376px, 0)
+    }
+    35% {
+     clip:rect(298px, 9999px, 193px, 0)
+    }
+    40% {
+     clip:rect(224px, 9999px, 47px, 0)
+    }
+    45% {
+     clip:rect(107px, 9999px, 220px, 0)
+    }
+    50% {
+     clip:rect(37px, 9999px, 297px, 0)
+    }
+    55% {
+     clip:rect(146px, 9999px, 279px, 0)
+    }
+    60% {
+     clip:rect(156px, 9999px, 70px, 0)
+    }
+    65% {
+     clip:rect(56px, 9999px, 415px, 0)
+    }
+    70% {
+     clip:rect(277px, 9999px, 327px, 0)
+    }
+    75% {
+     clip:rect(201px, 9999px, 65px, 0)
+    }
+    80% {
+     clip:rect(352px, 9999px, 199px, 0)
+    }
+    85% {
+     clip:rect(275px, 9999px, 266px, 0)
+    }
+    90% {
+     clip:rect(387px, 9999px, 30px, 0)
+    }
+    95% {
+     clip:rect(49px, 9999px, 160px, 0)
+    }
+    100% {
+     clip:rect(285px, 9999px, 64px, 0)
+    }
+}
+.page6 {
+    .content p {
+        font-size:1.15rem;
+        font-family:Helvetica, Arial, sans-serif !important;
+        font-weight:300;
+        line-height:28px;
+        color:#444444;
+        width:660px;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    .content p q {
+        width:400px;
+        font-family:"Varela", sans-serif;
+        font-size:2.2rem;
+        font-style:normal;
+        line-height:1.1;
+        color:#222222;
+        font-size: 7rem;
+        font-weight: bold;
+    }
+    .content p q.glitch {
+        position:relative;
+        width:410px;
+        margin:0 auto;
+    }
+    .content p q.glitch:before {
+        content:attr(data-text);
+        position:absolute;
+        overflow:hidden;
+        left:-1px;
+        clip:rect(0, 420px, 0, 0);
+        text-shadow:1px 0 #fff;
+        animation:pq-noise-2 2s infinite linear alternate-reverse;
+        background: red;
+    }
+}
+
+.page7 {
+    // IDEE CONTENU : https://en.wikipedia.org/wiki/Helvetica
+    //////////////////////////////////////////////////////
+    // TODO Titre et Footer
+    //////////////////////////////////////////////////////
+    // TODO first letter bigger
+    //////////////////////////////////////////////////////
+    p {
+        font-size: 1.15rem; // ATTENTION, la reference du font size
+        // est à 100% directement dans le style html, body de la page
+        font-family: Helvetica, Arial, sans-serif !important;
+        font-weight: 300;
+        line-height: 28px;
+        color: #444444;
+        width: 660px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 1.25rem;
+        text-rendering: optimizeLegibility;
+    }
+    p q {
+        width: 400px;
+        font-family: "Varela", sans-serif;
+        font-size: 2.2rem;
+        font-style: normal;
+        line-height: 1.1;
+        font-weight: 600;
+        color: #222222;
+        text-transform: uppercase;
+    }
+    p q img {
+        margin: 5px 0;
+    }
+    p.img-half-bleed {
+        width: auto;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    p q.glitch {
+        position: relative;
+        width: 410px;
+    }
+    img {
+        display: inline-block;
+        vertical-align: middle;
+        max-width: 100%;
+        height: auto;
+    }
+    p.img-half-bleed img {
+        width: 70%;
+    }
+    .left {
+        margin: 20px 30px 15px -30%;
+        float:left !important
+    }
+    .right {
+        margin: 20px -30% 15px 30px;
+        float:right !important
+    }
+}
+
+.page8 {
+    .header,
+    .content {
+        height: 100vh;
+        position: relative;
+    }
+    .big-word {
+        // font-size: 50vh;
+        font-family: 'Montserrat', sans-serif;
+        z-index: 100;
+        position: absolute;
+        top: 0;
+        font-size: 10vw;
+        font-weight: bold;
+    }
+    .image-background {
+        z-index: 10;
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        left: 0;
+        background-blend-mode: exclusion;
+        background-size: cover;
+        // TODO : animation du background
+        animation: color-change-2x 10s linear infinite alternate both;
+
+    }
+}
+
+@keyframes color-change-2x {
+    0% {
+      background: #19dcea;
+    }
+    100% {
+      background: #b22cff;
+    }
+}
+  
+
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+.page9 {
+    // overflow: hidden;
+    .content {
+        position: relative;
+        background: #d2d1cf;
+        .description {
+            position: absolute;
+            background: white;
+            padding: 25px;
+            &--title {
+                font-family: 'Playfair Display', serif;
+                font-size: 5rem;
+                position: relative;
+                a {
+                    display: block;
+                    position: absolute;
+                    left:0;
+                    bottom: -1rem;
+                }
+            }
+            &__plus {
+                width: 1rem;
+                position: absolute;
+                display: inline;
+                background: white;
+                padding: 5px;
+                border-radius: 50%;
+            }
+            &--one {
+                top: 10%;
+                background: #e2e5ea;
+            }
+            &--two {
+                top: 50%;
+                background: #9ba0a6;
+            }
+        }
+        img {
+            height: 100vh;
+            box-shadow: 5px 0px 5px #6f6f6f;
+        }
+    }
+}
+
+$color-purple: #561a44;
+$color-red-dark: #8e113f;
+$color-red: #c50a3c;
+$color-orange: #fc583c;
+$color-yellow: #fec22d;
+.page10 {
+    .content {
+        position: relative;
+    }
+    .column-page10 {
+        float: left;
+        width: 50%;
+        @media only screen and (max-width: 37.5em) {
+            width: 100%;
+        }
+    }
+    // left
+    .l-10 {
+        height: 100vh;
+        background: $color-purple;
+        &.second {
+            background: url(../img/luiz-centenaro-1068030-unsplash.jpg);
+            background-size: cover;
+            transition: background-position 2.2;
+            animation: animatedBackground 10s ease-in-out infinite alternate both;
+        }
+    }
+    // right top
+    .rt-10 {
+        height: 50vh;
+        background: $color-red-dark;
+    }
+    // right bottom left
+    .rbl {
+        float: left;
+        width: 50%;
+        height: 50vh;
+        background: $color-red;
+    }
+    // right bottom right top
+    .rbrt {
+        float: left;
+        width: 50%;
+        height: 25vh;
+        background: $color-orange;
+    }
+    .rbrb {
+        float: left;
+        width: 50%;
+        height: 25vh;
+        background: $color-yellow;
+    }
+}
+@keyframes animatedBackground {
+    0% {
+        background-position: left;
+    }
+    100% {
+        background-position: right;
+    }
+}
